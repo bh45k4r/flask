@@ -2,7 +2,7 @@
 
 import json
 
-from flask import Flask, request
+from flask import Flask, request, Response
 app = Flask(__name__)
 
 
@@ -11,7 +11,7 @@ def whats_my_ip():
   """
   returns remote address
   """
-  return json.dumps({'my_addr': request.remote_addr})
+  return Response(json.dumps({'my_addr': request.remote_addr}), mimetype = 'application/json')
 
 
 if __name__ == '__main__':
