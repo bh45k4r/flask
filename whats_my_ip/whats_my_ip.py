@@ -1,8 +1,8 @@
+#!/usr/bin/python
+
 import json
 
 from flask import Flask, request
-
-
 app = Flask(__name__)
 
 
@@ -15,7 +15,5 @@ def whats_my_ip():
 
 
 if __name__ == '__main__':
-  app.run(
-           host = '::',
-           port = 80
-         )
+  app.run(host = '::',
+          port = 80)
