@@ -11,7 +11,7 @@ def whats_my_ip():
   """
   returns remote address
   """
-  return json.dumps({'remote_addr': request.remote_addr})
+  return json.dumps({'my_addr': request.remote_addr})
 
 
 if __name__ == '__main__':
