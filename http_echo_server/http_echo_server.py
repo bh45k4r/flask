@@ -2,8 +2,10 @@
 
 import json
 
-from flask import Flask, request
+from flask import Flask, request, Response
+
 app = Flask(__name__)
+app.config['MAX_CONTENT_LENGTH'] = 1024
 
 
 @app.route('/echo', methods = ['GET', 'POST'])
@@ -12,9 +14,12 @@ def echo():
   echo data
   """
   if request.method == 'GET':
-    return json.dumps(request.args)
+    json_response = json.dumps(request.args)
   else:
-    return json.dumps(request.form)
+    json_response = json.dumps(request.form)
+
+  return Response(json_response,
+                  mimetype = 'application/json')
 
 
 if __name__ == '__main__':
