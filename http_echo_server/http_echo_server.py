@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route('/echo', methods = ['GET', 'POST'])
 def echo():
-  """"
+  """
   echo data
   """
   if request.method == 'GET':
