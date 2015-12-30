@@ -1,8 +1,6 @@
 #!/usr/bin/python
 
-import json
-
-from flask import Flask, request, Response
+from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 
@@ -11,7 +9,7 @@ def whats_my_ip():
   """
   returns remote address
   """
-  return Response(json.dumps({'my_addr': request.remote_addr}), mimetype = 'application/json')
+  return jsonify({'my_addr': request.remote_addr})
 
 
 if __name__ == '__main__':

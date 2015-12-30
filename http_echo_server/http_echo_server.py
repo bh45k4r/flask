@@ -1,8 +1,6 @@
 #!/usr/bin/python
 
-import json
-
-from flask import Flask, request, Response
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 1024
@@ -14,12 +12,9 @@ def echo():
   echo data
   """
   if request.method == 'GET':
-    json_response = json.dumps(request.args)
+    return jsonify(request.args)
   else:
-    json_response = json.dumps(request.form)
-
-  return Response(json_response,
-                  mimetype = 'application/json')
+    return jsonify(request.form)
 
 
 if __name__ == '__main__':
